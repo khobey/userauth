@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.personal.userauth.entity.User;
 import com.personal.userauth.manager.UserRegistrationManager;
+import com.personal.userauth.response.ResponseDetail;
 
 @RestController
 public class UserRegistrationRest
@@ -23,8 +24,8 @@ public class UserRegistrationRest
 		if(!user.getPassword().equals(user.getPasswordConfirm()))
 			return ResponseEntity.unprocessableEntity().body("Passwords do not match");
 		
-		urm.registerUser(user);
-		return ResponseEntity.ok("Registration done  for: " + user.getEmailAddress());
+		ResponseDetail res = urm.registerUser(user);
+		return ResponseEntity.status(res.getCode()).body(res.getDetail());
 	}
 
 }

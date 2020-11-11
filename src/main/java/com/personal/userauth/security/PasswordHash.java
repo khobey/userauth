@@ -8,9 +8,9 @@ import org.bouncycastle.util.encoders.Hex;
 
 public class PasswordHash
 {
-	public static String hashPassword(String password) throws NoSuchAlgorithmException
+	public static String hashPassword(String password, String algo) throws NoSuchAlgorithmException
 	{
-		MessageDigest digest = MessageDigest.getInstance("SHA-256");
+		MessageDigest digest = MessageDigest.getInstance(algo);
 		byte[] hash = digest.digest(
 				password.getBytes(StandardCharsets.UTF_8));
 		String hashedPassword = new String(Hex.encode(hash));
