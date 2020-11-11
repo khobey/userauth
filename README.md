@@ -6,6 +6,11 @@ Hashing algorithm is meant have versions to re-hash passwords in case algorithm 
 This project uses SpringBoot, JPA, Log4j2 and PostgreSQL. May be ran using embedded tomcat. </p>
 
 <hr />
+<h2>Prerequisites</h2>
+Set your database password as environment variable  POSTGRESQL_PW. <br/>
+Run mvn spring-boot:run to run with Tomcat plugin.
+
+<hr />
 <h2>Sample usage</h2>
 
 <b>Registration</b>	<br />
